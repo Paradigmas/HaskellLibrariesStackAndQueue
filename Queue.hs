@@ -30,11 +30,13 @@ size (Qu(a:b)) = 1 +(size(Qu b))
 
 --Insertion of the element in the Queue
 push element (Qu a) = (Qu (a ++[element]))
+push element Empty = (Qu [element])
 
 --Deleting element in the queue
 pop Empty = error "Empty Queue"
 pop (Qu[]) = error "Empty Queue"
-pop (Qu(a:b)) = Qu b
+pop (Qu (a:b)) | size (Qu (a:b))==1 = Empty
+               | otherwise = Qu b
 
 --The first element in the queue
 front Empty = error "Empty Queue"

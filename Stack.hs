@@ -29,6 +29,7 @@ size (St (a:b)) = 1 + (size (St b))
 
 --Insertion of the element in the Stack
 push element (St stack) = St(element:stack)
+push element Empty = (St [element])
 
 --The top element in the stack
 top Empty = error "Empty Stack"
